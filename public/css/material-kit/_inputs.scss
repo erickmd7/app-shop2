@@ -101,6 +101,7 @@
 
       // form-group margin-top must be large enough for the label and the label's top padding since label is absolutely positioned
       margin: ($label-top-margin + $static-font-size) 0 0 0;
+      text-align: left;
 
       // larger labels as placeholders
       &.label-floating,
