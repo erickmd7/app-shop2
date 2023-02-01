@@ -16,13 +16,14 @@ Route::get('/', 'TestController@welcome')->name('welcome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/admin/products','ProductController@index'); //listado
-Route::get('/admin/products/create','ProductController@create'); //formulario crear
-Route::post('/admin/products','ProductController@store'); //registrar
-Route::get('/admin/products/{id}/edit','ProductController@edit'); //formulario editar
-Route::post('/admin/products/{id}/edit','ProductController@update'); //registrar cambio
-Route::DELETE('/admin/products/{id}','ProductController@destroy');
-// CREATE AND READ (CR)
-
-//ud
+Route::middleware(['auth','admin'])->group(function () {
+    // CREATE AND READ (CR)
+    Route::get('/admin/products','ProductController@index'); //listado
+    Route::get('/admin/products/create','ProductController@create'); //formulario crear
+    Route::post('/admin/products','ProductController@store'); //registrar
+    
+    //ud
+    Route::get('/admin/products/{id}/edit','ProductController@edit'); //formulario editar
+    Route::post('/admin/products/{id}/edit','ProductController@update'); //registrar cambio
+    Route::delete('/admin/products/{id}','ProductController@destroy');
+});
