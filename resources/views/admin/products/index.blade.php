@@ -19,9 +19,9 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Categoria</th>
+                                <th class="text-center">Nombre</th>
+                                <th class="text-center">Descripcion</th>
+                                <th class="text-center">Categoria</th>
                                 <th class="text-right">Precio</th>
                                 <th class="text-right">Opciones</th>
                             </tr>
@@ -38,11 +38,14 @@
                                         <form method="POST" action="{{url('/admin/products/'.$product->id)}}">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE')}}
-                                            <button type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
+                                            <a type="button" rel="tooltip" title="Ver producto" class="btn btn-info btn-simple btn-xs">
                                                 <i class="fa fa-info"></i>
-                                            </button>
+                                            </a>
                                             <a href="{{url('/admin/products/'.$product->id .'/edit')}}" rel="tooltip" title="Editar producto" class="btn btn-success btn-simple btn-xs">
                                                 <i class="fa fa-edit"></i>
+                                            </a>
+                                            <a href="{{url('/admin/products/'.$product->id .'/images')}}" rel="tooltip" title="Imagenes del producto" class="btn btn-info btn-simple btn-xs">
+                                                <i class="fa fa-image"></i>
                                             </a>
                                             <button type="submit" title="Eliminar producto" class="btn btn-danger btn-simple btn-xs"                                          >
                                                 <i class="fa fa-times"></i>
@@ -59,25 +62,6 @@
         </div>
     </div>
 </div>
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-right">
-                <ul>
-                    <li><a href="https://applied.com.mx">Applied</a></li>
-                    <li><a href="https://rodensa.net">Rodensa</a></li>
-                    <li><a href="https://vycmex.net">Vycmex</a></li>
-                    <li><a href="http://www.dicofasa.mx/">Dicofasa</a></li>
-                </ul>
-            </nav>
-            <div class="copyright pull-left">
-                Applied México © 
-                    @php
-                        echo(date("Y"));
-                    @endphp
-                    Todos los derechos reservados.
-                </div>
-            </div>
-        </div>
-    </footer>
+@include('includes.footer')
 </div>
 @endsection

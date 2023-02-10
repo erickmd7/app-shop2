@@ -69,7 +69,7 @@
                     @foreach ($products as $product)
                         <div class="col-md-4">
                             <div class="team-player">
-                                <img src="{{$product->images()->first()->image}}" alt="Thumbnail Image" class="img-raised img-circle">
+                                <img src="{{$product->featured_image_url}}" alt="Thumbnail Image" class="img-raised img-circle">
                                 <h4 class="title">{{$product->name}} <br />
                                     <small class="text-muted">{{$product->category['name']}}</small>
                                 </h4>
@@ -85,25 +85,6 @@
         </div>
     </div>
 </div>
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-right">
-                <ul>
-                    <li><a href="https://applied.com.mx">Applied</a></li>
-                    <li><a href="https://rodensa.net">Rodensa</a></li>
-                    <li><a href="https://vycmex.net">Vycmex</a></li>
-                    <li><a href="http://www.dicofasa.mx/">Dicofasa</a></li>
-                </ul>
-            </nav>
-            <div class="copyright pull-left">
-                Applied México © 
-                    @php
-                        echo(date("Y"));
-                    @endphp
-                    Todos los derechos reservados.
-                </div>
-            </div>
-        </div>
-    </footer>
+@include('includes.footer')
 </div>
 @endsection
