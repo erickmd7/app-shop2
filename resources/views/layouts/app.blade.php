@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
     <link href="{{asset('css/material-kit.css')}}" rel="stylesheet"/>
+    @yield('styles')
 </head>
 <body class="@yield('body-class')">
     <nav class="navbar navbar-transparent navbar-absolute">
