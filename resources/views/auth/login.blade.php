@@ -56,25 +56,7 @@
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="container">
-            <nav class="pull-right">
-                <ul>
-                    <li><a href="#">Applied</a></li>
-                    <li><a href="#">Rodensa</a></li>
-                    <li><a href="#">Vycmex</a></li>
-                    <li><a href="#">Dicofasa</a></li>
-                </ul>
-            </nav>
-            <div class="copyright pull-left">
-                Applied México © 
-                    @php
-                        echo(date("Y"));
-                    @endphp
-                    Todos los derechos reservados.
-                </div>
-            </div>
-        </div>
-    </footer>
+    
+    @include('includes.footer')
 </div>
 @endsection

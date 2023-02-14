@@ -6,17 +6,6 @@
     .team .row .col-md-4{
         margin-bottom: 5em;
     }
-    .row{
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-    }   
-    .row > [class*='col-']{
-        display: flex;
-        flex-direction: column;
-    }
 </style>
 @endsection
 @section('content')
@@ -86,13 +75,13 @@
                 <div class="row">
                     @foreach ($products as $product)
                         <div class="col-md-4">
-                            <div class="card team-player">
+                            <div class="team-player">
                                 <img src="{{$product->featured_image_url}}" alt="Thumbnail Image" class="img-raised img-circle">
                                 <h4 class="title"><a href="{{url('/products/'.$product->id)}}">{{$product->name}} </a><br />
                                     <small class="text-muted">{{$product->category['name']}}</small>
                                 </h4>
-                                <p class="description">{{$product->description}}</p>
-                                
+                                <p class="description">{{substr($product->description,0,40).'...'}}</p>
+                                <a href="{{url('/products/'.$product->id)}}" class="btn btn-primary">Ver más...</a>
                             </div>
                         </div>
                     @endforeach

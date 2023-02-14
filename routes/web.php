@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/', 'TestController@welcome')->name('welcome');
+Route::get('/', 'TestController@welcome');
+
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 Route::get('/products/{id}', 'ProductController@show');
+
+Route::post('/cart', 'CartDetailController@store');
+Route::delete('/cart', 'CartDetailController@destroy');
+Route::post('/order', 'CartController@update');
 
 Route::middleware(['auth','admin'])->prefix('admin')->namespace('Admin')->group(function () {
     // CREATE AND READ (CR)
