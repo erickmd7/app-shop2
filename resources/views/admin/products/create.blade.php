@@ -57,7 +57,20 @@
                         <div class="col-md-auto">
                             <div class="form-group label-floating">
                                 <label class="control-label" for="price">Precio</label>
-                                <input type="number" form-control" rows="3" name="price" step="0.01" value="{{old('price')}}">
+                                <input type="number" class="form-control" name="price" step="0.01" value="{{old('price')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="category">Categoria</label>
+                                <select class="form-control" name="category_id" id="category">
+                                    <option disabled selected>Seleccionar categoria</option>
+                                    @foreach ($categories as $category)
+                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

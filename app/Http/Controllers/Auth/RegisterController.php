@@ -65,7 +65,11 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password'])//$this->hash($data['password']),
         ]);
     }
+    protected function hash($string){
+        return hash('sha512',$string.config('app.encryprion_key'));
+    }
+    
 }

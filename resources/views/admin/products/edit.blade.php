@@ -66,6 +66,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <div class="form-group label-floating">
+                                <label class="control-label" for="category">Categoria</label>
+                                <select class="form-control" data-style="select-with-transition" name="category_id" id="category_id">
+                                    <option disabled>Seleccionar categoria</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category->id}}" @if($category->id == old('category_id',$product->category_id)) selected @endif>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <button type="submit" class="btn btn-primary text-center">Actualizar Producto</button>
                     <a class="btn btn-danger text-center" href="{{url('/admin/products')}}">Cancelar</a>
                 </form>
