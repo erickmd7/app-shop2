@@ -28,7 +28,7 @@
                 @endif
             </div>
             <div class="col-md-4 col-md-offset-4">
-                <form method="POST" action="{{url('/admin/categories/'.$category->id.'/edit')}}" class="form">
+                <form method="POST" action="{{url('/admin/categories/'.$category->id.'/edit')}}" class="form" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-auto">
@@ -49,6 +49,13 @@
                                 <input type="text" class="form-control" name="description" value="{{old('description',$category->description)}}">
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-auto">
+                        <label class="control-label" for="name">Imagen de la categoria</label>
+                        <input type="file" name="image">
+                        @if($category->image)
+                        <p class="help-block btn-danger">Subir sólo si desea reemplazar la imagen actual <a href="{{asset('/images/categories/'.$category->image)}}" target="_blank">Imagen</a></p>
+                        @endif
                     </div>
                     
                     <button type="submit" class="btn btn-primary text-center">Actualizar Categoria</button>

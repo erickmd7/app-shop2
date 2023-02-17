@@ -22,7 +22,7 @@ class Product extends Model
         if($featuredimage){
             return $featuredimage->url;}
 
-        return '/images/products/default.png';
+        return '/images/default.png';
     }
     public function getCategoryNameAttribute(){
         if($this->category)

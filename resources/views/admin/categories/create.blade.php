@@ -27,7 +27,7 @@
             @endif
         </div>
         <div class="section col-md-4 col-md-offset-4 text-center">
-                <form method="POST" action="{{url('/admin/categories')}}" class="form">
+                <form method="POST" action="{{url('/admin/categories')}}" class="form" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-auto">
@@ -35,6 +35,12 @@
                                 <label class="control-label" for="name">Nombre de la categoria</label>
                                 <input type="text" class="form-control" name="name" value="{{old('name')}}">
                             </div>
+                        </div>
+                        <div class="col-md-auto">
+                                <label class="control-label" for="name">Imagen de la categoria</label>
+                                <input type="file" name="image">
+                                <p class="help-block">Subir sólo si desea reemplazar la imagen actual <a href="{{asset('/images/categories/'.$category->image)}}" target="_blank"></a></p>
+                                
                         </div>
                     </div>
                     <div class="row">

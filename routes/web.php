@@ -15,9 +15,13 @@ Route::get('/', 'TestController@welcome');
 
 
 Auth::routes();
+Route::get('/search', 'SearchController@show');
+Route::get('/products/json', 'SearchController@data');
+
 Route::get('/home', 'HomeController@index');
 Route::get('/products/{id}', 'ProductController@show');
 Route::get('/categories/{category}', 'CategoryController@show');
+
 
 Route::post('/cart', 'CartDetailController@store');
 Route::delete('/cart', 'CartDetailController@destroy');
