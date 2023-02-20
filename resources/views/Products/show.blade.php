@@ -36,10 +36,13 @@
                       <p>{{$product->long_description}}</p>
                </div>
                <div class="text-center">
-
+                @if (auth()->check())
                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#modalAddToCart">
                        <i class="material-icons">add</i>Añadir al carrito
                     </button>
+                @else
+                    <a href="{{url('/login?redirect_to='.url()->current())}}" class="btn btn-primary btn-round">Registrarse</a>
+                @endif
                 </div>
                 
 			<div class="row">

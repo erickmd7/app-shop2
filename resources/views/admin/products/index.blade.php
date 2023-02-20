@@ -12,9 +12,13 @@
         <div class="text-center">
             <div style="margin-top: 20px">
                 <div class="row">
+                    @if (auth()->check())
                     <a class="btn btn-primary btn-round" href="{{url('/admin/products/create')}}">
                         <i class="material-icons">add</i> Nuevo Producto
                     </a>
+                    @else
+                    <a href="{{url('/register?redirect_to='.url()->current())}}" class="btn btn-primary btn-round">Registrarse</a>
+                    @endif
                     <table class="table">
                         <thead>
                             <tr>
